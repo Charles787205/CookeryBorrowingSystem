@@ -38,10 +38,12 @@ class User():
     cursor = db.cursor(dictionary=True)
     password = DatabaseModel().hash_string(password)
     sql = "SELECT * FROM users WHERE email = %s AND password = %s"
+  
     val = (email, password)
     cursor.execute(sql, val)
     user = cursor.fetchone()
     db.close()
+
     if(user):
       return User(**user)
     else: 

@@ -336,6 +336,8 @@ class CreateAccountForm(QtWidgets.QFrame):
         email = self.email_text_field_2.text()
         password = self.password_textfield.text()
         username = self.username_text_field_3.text()
+
+        print(username, password )
         if name and email and password:
             user = User(name=name, email=email, password=password, user_type=user_type, username=username)
             user.save()

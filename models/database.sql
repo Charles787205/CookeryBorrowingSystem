@@ -29,7 +29,7 @@ create TABLE requests (
     user_id INT NOT NULL,
     status ENUM('pending', 'approved', 'rejected','returned') DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 create TABLE request_items (
@@ -38,7 +38,7 @@ create TABLE request_items (
     item_id INT NOT NULL,
     quantity INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (request_id) REFERENCES requests(id),
+    FOREIGN KEY (request_id) REFERENCES requests(id) ON DELETE CASCADE, 
     FOREIGN KEY (item_id) REFERENCES items(id)
 );
 

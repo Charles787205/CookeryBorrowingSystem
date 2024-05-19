@@ -1,6 +1,6 @@
 from pages import LoginForm, CreateAccountForm, HomePage
 import sys
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui
 
 class CookeryApp(QtWidgets.QApplication):
     def __init__(self, argv):
@@ -8,6 +8,7 @@ class CookeryApp(QtWidgets.QApplication):
         self.window = QtWidgets.QStackedWidget()
         self.window.setWindowTitle("Cookery App")
         self.ui = LoginForm()
+        self.setFont(QtGui.QFont("Helvetica"))
         qss="css/style.qss"
         with open(qss,"r") as fh:
             style = fh.read()

@@ -214,6 +214,7 @@ class LoginForm(QtWidgets.QFrame):
 
     def on_login_button_clicked(self):
         user = User.login(self.email_text_field.text(), self.password_textfield.text()) 
+        
         if(user):
             if(user.user_type == User.USER):
                 home = HomePage(parent=self.parent, user =user)

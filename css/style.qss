@@ -1,8 +1,4 @@
-* {
-  font-family: "Courier New", Courier, monospace;
-  
 
-}
 #scrollAreaWidgetContents {
   background-color: rgba(0, 0, 0, 0);
   border:0;
@@ -40,6 +36,7 @@
 }
 #CategoryPanel:hover {
   background-color: rgba(255, 100, 100, 1);
+  
 }
 #title_label {
   background-color: rgba(0, 0, 0, 0);

@@ -15,15 +15,24 @@ class CategoryPanel(QtWidgets.QFrame):
     self.setObjectName("CategoryPanel")
     
     self.verticalLayout = QtWidgets.QVBoxLayout(self)
-    self.label = QtWidgets.QLabel(self)
-    self.label.setObjectName("title_label")
-  
-    self.label.setFont(QtGui.QFont('Arial', 40, QtGui.QFont.Bold))
-    self.label.setAlignment(QtCore.Qt.AlignCenter)
-    #when self is clicked
-    self.label.mousePressEvent = self.clicked
 
-    self.label.setText(self.name)
+    self.image_label = QtWidgets.QLabel(self)
+    
+
+    self.label = QtWidgets.QLabel(self)
+    self.label.setObjectName("category_panel_label")
+    self.label.setFont(QtGui.QFont('Helvetica', 40, QtGui.QFont.Bold))
+    self.label.setAlignment(QtCore.Qt.AlignCenter)
+    self.label.setText(self.name.title())
+
+
+    self_style = f"color:white; background: url('assets/{self.name}.jpg');  background-position: center; border-radius: 10px;"
+    self.image_label.setStyleSheet(self_style)
+   
+    self.mousePressEvent = self.clicked
+
+    
+    self.verticalLayout.addWidget(self.image_label, 2)
     self.verticalLayout.addWidget(self.label)
 
   def clicked(self, event):
